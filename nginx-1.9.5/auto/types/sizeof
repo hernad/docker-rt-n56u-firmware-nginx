@@ -44,6 +44,9 @@ if [ -x $NGX_AUTOTEST ]; then
     echo " $ngx_size bytes"
 fi
 
+if [ -z $ngx_size ] ; then
+  ngx_size=4
+fi
 
 rm -rf $NGX_AUTOTEST*
 

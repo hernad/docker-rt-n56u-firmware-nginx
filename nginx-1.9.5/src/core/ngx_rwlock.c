@@ -9,8 +9,6 @@
 #include <ngx_core.h>
 
 
-#if (NGX_HAVE_ATOMIC_OPS)
-
 
 #define NGX_RWLOCK_SPIN   2048
 #define NGX_RWLOCK_WLOCK  ((ngx_atomic_uint_t) -1)
@@ -109,12 +107,10 @@ ngx_rwlock_unlock(ngx_atomic_t *lock)
 }
 
 
-#else
 
-#if (NGX_HTTP_UPSTREAM_ZONE)
+//#if (NGX_HTTP_UPSTREAM_ZONE)
 
-#error ngx_atomic_cmp_set() is not defined!
+//#error ngx_atomic_cmp_set() is not defined!
 
-#endif
+//#endif
 
-#endif
