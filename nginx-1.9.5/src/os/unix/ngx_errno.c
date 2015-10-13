@@ -28,7 +28,9 @@
 static ngx_str_t  *ngx_sys_errlist;
 static ngx_str_t   ngx_unknown_error = ngx_string("Unknown error");
 
-#define NGX_SYS_NERR 100
+#ifndef NGX_SYS_NERR
+   #define NGX_SYS_NERR 135
+#endif
 
 u_char *
 ngx_strerror(ngx_err_t err, u_char *errstr, size_t size)
