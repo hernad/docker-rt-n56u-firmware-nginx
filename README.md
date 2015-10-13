@@ -44,3 +44,20 @@ FS Ver.:      3.9
 make[2]: Leaving directory '/opt/rt-n56u/trunk/vendors/Ralink/RT3883'
 make[1]: Leaving directory '/opt/rt-n56u/trunk/vendors'
 </pre>
+
+
+## Makefile CONFIG_FIRMWARE_INCLUDE_NGINX
+ 
+<pre>
+diff --git a/trunk/user/Makefile b/trunk/user/Makefile
+index cbfba86..405ebc5 100644
+--- a/trunk/user/Makefile
++++ b/trunk/user/Makefile
+@@ -102,6 +102,7 @@ dir_$(CONFIG_FIRMWARE_INCLUDE_OPENVPN)              += openvpn
+ dir_$(CONFIG_FIRMWARE_INCLUDE_XUPNPD)          += xupnpd
+ dir_$(CONFIG_FIRMWARE_INCLUDE_TCPDUMP)         += tcpdump
+ dir_$(SAMBA_ENABLED)                           += samba3
++dir_$(CONFIG_FIRMWARE_INCLUDE_NGINX)            += nginx
+</pre>
+
+
