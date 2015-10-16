@@ -13,7 +13,7 @@
 ## make
 
 
-     root@c035cc2a582f:/opt/rt-n56u/trunk# CONFIG_FIRMWARE_INCLUDE_NGINX=y make
+     root@c035cc2a582f:/opt/rt-n56u/trunk# rm user/nginx/config_done ; CONFIG_FIRMWARE_INCLUDE_NGINX=y make
 
 <pre>
 ....

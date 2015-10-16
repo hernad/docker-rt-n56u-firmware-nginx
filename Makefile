@@ -1,8 +1,8 @@
 SRC_NAME=nginx-1.9.5
 
-CFLAGS  += -ffunction-sections -fdata-sections
+CFLAGS  += -I(STAGEDIR)/include/openssl -ffunction-sections -fdata-sections
 CXXFLAGS += -ffunction-sections -fdata-sections
-LDFLAGS += -L$(STAGEDIR)/lib  -Wl,--gc-sections
+LDFLAGS += -L$(STAGEDIR)/lib -lssl -lcrypto  -Wl,--gc-sections
 
 THISDIR = $(shell pwd)
 
@@ -22,10 +22,18 @@ config_test:
 #--with-cc=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc 
 #--with-zlib=$(STAGEDIR)
 
+#--with-openssl=/opt/rt-n56u/trunk/libs/libssl/openssl-1.0.1 
+
+
 configure:
 	( cd $(SRC_NAME) ; \
 	./configure --crossbuild=Linux::mips \
-	--without-http_gzip_module \
+	--prefix=/etc/storage/nginx \
+	--with-cc=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc \
+	--with-openssl=/opt/local \
+	--with-zlib=/opt/local \
+	--with-http_ssl_module \
+	--error-log-path=/dev/stderr \
 	--without-http_rewrite_module ; \
 	)
 
