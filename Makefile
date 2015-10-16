@@ -47,3 +47,6 @@ clean:
 
 romfs:
 	$(ROMFSINST) $(SRC_NAME)/objs/nginx /usr/sbin/nginx
+	mkdir -p $(INSTALLDIR)/etc/storage/nginx/conf
+	mkdir -p $(INSTALLDIR)/etc/storage/nginx/log
+	$(ROMFSINST) $(SRC_NAME)/conf/mime.types /etc/storage/nginx/conf 
